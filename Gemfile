@@ -1,2 +1,5 @@
-ruby '2.1'
+ruby '2.1.2'
 source 'https://rubygems.org'
+
+gem 'rspec'
+gem 'guard-rspec'
