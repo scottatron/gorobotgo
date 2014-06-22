@@ -21,7 +21,7 @@ describe 'gorobotgo' do
   it 'runs a run list of commands and returns any output' do
     env = {'PATH' => "#{BIN}:#{ENV['PATH']}"}
     out, status = Open3.capture2e env, 'gorobotgo', stdin_data: commands
-    expect(out).to eq '0,1,NORTH'
+    expect(out).to eq "0,1,NORTH\n"
   end
 
 end

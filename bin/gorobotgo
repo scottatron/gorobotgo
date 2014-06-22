@@ -1,1 +1,10 @@
 #!/usr/bin/env ruby
+$:.push File.expand_path '../../lib', __FILE__
+require 'robot'
+require 'run_list'
+
+@robot = Robot.new
+RunList.new(ARGF.read).runnable_commands.each do |cmd,args|
+  output = @robot.run_cmd cmd, args
+  puts output unless output.nil?
+end
