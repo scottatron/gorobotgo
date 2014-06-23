@@ -89,11 +89,55 @@ describe Robot do
   end
 
   describe '#left' do
-    it 'rotates the direction counter-clockwise by 90 degrees'
+    it 'sets the direction to WEST when facing NORTH' do
+      robot.place('0', '0', 'NORTH')
+      robot.left
+      expect( robot.direction ).to eq 'WEST'
+    end
+    it 'sets the direction to SOUTH when facing WEST' do
+      robot.place('0', '0', 'WEST')
+      robot.left
+      expect( robot.direction ).to eq 'SOUTH'
+    end
+    it 'sets the direction to EAST when facing SOUTH' do
+      robot.place('0', '0', 'SOUTH')
+      robot.left
+      expect( robot.direction ).to eq 'EAST'
+    end
+    it 'sets the direction to NORTH when facing EAST' do
+      robot.place('0', '0', 'EAST')
+      robot.left
+      expect( robot.direction ).to eq 'NORTH'
+    end
+    it 'returns nil' do
+      expect( robot.left ).to be_nil
+    end
   end
 
   describe '#right' do
-    it 'rotates the direction clockwise by 90 degrees'
+    it 'sets the direction to EAST when facing NORTH' do
+      robot.place('0', '0', 'NORTH')
+      robot.right
+      expect( robot.direction ).to eq 'EAST'
+    end
+    it 'sets the direction to NORTH when facing WEST' do
+      robot.place('0', '0', 'WEST')
+      robot.right
+      expect( robot.direction ).to eq 'NORTH'
+    end
+    it 'sets the direction to WEST when facing SOUTH' do
+      robot.place('0', '0', 'SOUTH')
+      robot.right
+      expect( robot.direction ).to eq 'WEST'
+    end
+    it 'sets the direction to SOUTH when facing EAST' do
+      robot.place('0', '0', 'EAST')
+      robot.right
+      expect( robot.direction ).to eq 'SOUTH'
+    end
+    it 'returns nil' do
+      expect( robot.right ).to be_nil
+    end
   end
 
   describe '#report' do

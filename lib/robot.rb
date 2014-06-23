@@ -35,11 +35,31 @@ class Robot
   end
 
   def left
-
+    case direction
+    when 'NORTH'
+      @direction = 'WEST'
+    when 'EAST'
+      @direction = 'NORTH'
+    when 'SOUTH'
+      @direction = 'EAST'
+    when 'WEST'
+      @direction = 'SOUTH'
+    end
+    nil
   end
 
   def right
-
+    case direction
+    when 'NORTH'
+      @direction = 'EAST'
+    when 'EAST'
+      @direction = 'SOUTH'
+    when 'SOUTH'
+      @direction = 'WEST'
+    when 'WEST'
+      @direction = 'NORTH'
+    end
+    nil
   end
 
   def report
