@@ -7,7 +7,9 @@ class Robot
   TABLE_HEIGHT = 5
 
   def run_cmd(cmd, args)
-    send cmd.downcase, *args
+    if respond_to? cmd.downcase
+      send cmd.downcase, *args
+    end
   end
 
   def place(x, y, direction)

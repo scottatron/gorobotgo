@@ -5,12 +5,13 @@ describe Robot do
 
   describe '#run_cmd' do
     it 'proxies a command from the run list' do
-      robot = Robot.new
       expect(robot).to receive(:place).with('1', '1', 'EAST')
       robot.run_cmd 'PLACE', ['1', '1', 'EAST']
     end
 
-    it 'ignores any commands that don\'t exist'
+    it 'ignores any commands that don\'t exist' do
+      expect{ robot.run_cmd 'SOMETHING', %w(NON EXISTANT) }.to_not raise_error
+    end
   end
 
   describe '#place' do
@@ -80,10 +81,6 @@ describe Robot do
         robot.move
         expect(robot.x_position).to eq 1
       end
-    end
-
-    context 'when move would see the robot fall off the edge of table' do
-      it 'ignores the MOVE command'
     end
 
   end
