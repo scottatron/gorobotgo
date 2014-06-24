@@ -1,5 +1,6 @@
 ruby '2.1.2'
+
 source 'https://rubygems.org'
 
-gem 'rspec'
-gem 'guard-rspec'
+# Specify your gem's dependencies in gorobotgo.gemspec
+gemspec
