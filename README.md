@@ -6,15 +6,11 @@ Control a toy robot on a table-top, consisting of 5 units by 5 units.
 
 Add this line to your application's Gemfile:
 
-    gem 'gorobotgo'
+    gem 'gorobotgo', github: 'scottatron/gorobotgo'
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install gorobotgo
 
 ## Usage
 
