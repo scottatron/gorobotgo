@@ -14,8 +14,6 @@ And then execute:
 
 ## Usage
 
-## Usage
-
 ### Commands
 
 There are 5 commands which the robot will respond to:
