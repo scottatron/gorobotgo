@@ -49,7 +49,7 @@ describe RunList do
     end
 
     it 'returns the first PLACE command and all subsequent
-     commands with any arguments, ready to send to a robot' do
+    commands with any arguments, ready to send to a robot' do
       expect(RunList.new(commands).runnable_commands).to eq [
         ['PLACE', ['0', '2', 'NORTH']],
         ['MOVE'],

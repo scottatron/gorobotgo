@@ -12,6 +12,35 @@ describe Robot do
     it 'ignores any commands that don\'t exist' do
       expect{ robot.run_cmd 'SOMETHING', %w(NON EXISTANT) }.to_not raise_error
     end
+
+    context 'when a valid PLACE command has not been issued' do
+      it 'ignores MOVE commands' do
+        expect{ robot.run_cmd 'MOVE' }.to_not raise_error
+        expect( robot.x_position ).to be_nil
+        expect( robot.y_position ).to be_nil
+        expect( robot.direction  ).to be_nil
+      end
+      it 'ignores LEFT commands' do
+        expect{ robot.run_cmd 'LEFT' }.to_not raise_error
+        expect( robot.x_position ).to be_nil
+        expect( robot.y_position ).to be_nil
+        expect( robot.direction  ).to be_nil
+      end
+      it 'ignores RIGHT commands' do
+        expect{ robot.run_cmd 'RIGHT' }.to_not raise_error
+        expect( robot.x_position ).to be_nil
+        expect( robot.y_position ).to be_nil
+        expect( robot.direction  ).to be_nil
+      end
+      it 'ignores REPORT commands' do
+        expect{ robot.run_cmd 'REPORT' }.to_not raise_error
+        expect( robot.run_cmd 'REPORT' ).to eq ""
+        expect( robot.x_position ).to be_nil
+        expect( robot.y_position ).to be_nil
+        expect( robot.direction  ).to be_nil
+      end
+    end
+
   end
 
   describe '#place' do
@@ -37,9 +66,9 @@ describe Robot do
       it 'ignores the PLACE command' do
         robot = Robot.new
         robot.place('-1', '1', 'WEST')
-        expect(robot.x_position).to be_nil
-        expect(robot.y_position).to be_nil
-        expect(robot.direction).to be_nil
+        expect( robot.x_position ).to be_nil
+        expect( robot.y_position ).to be_nil
+        expect( robot.direction  ).to be_nil
       end
     end
   end

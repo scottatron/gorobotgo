@@ -6,7 +6,7 @@ class Robot
   TABLE_WIDTH  = 5
   TABLE_HEIGHT = 5
 
-  def run_cmd(cmd, args)
+  def run_cmd(cmd, args = nil)
     if respond_to? cmd.downcase
       send cmd.downcase, *args
     end
